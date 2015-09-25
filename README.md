@@ -20,8 +20,12 @@ contains a frame's worth of render command encoder calls
 Command (buffer) queue - Buffered Frames (MTLCommandQueue)
 
 
+Object relationships
 Metal layer (CAMetalLayer)
 	• Drawable (CAMetalDrawable)
+		Render pass descriptor (MTLRenderPassDescriptor) - depends on a drawable
+			.colorAttachments[0] (texture, loadAction, clearColor, storeAction)
+			.depthAttachments (texture, loadAction, clearColor, storeAction)
 
 	• Device (MTLDevice)
 		- Command queue (MTLCommandQueue)
@@ -33,7 +37,7 @@ Metal layer (CAMetalLayer)
 
 		- Depth and stencil state (MTLDepthStencilState)
 
-		- Default library (MTLLibrary)
+		- Library (MTLLibrary)
 			- Vertex program (MTLFunction)
 			- Fragment program (MTLFunction)
 
@@ -45,8 +49,8 @@ SemaphoreWait(mySemaphore)
 // New command buffer
 - Get a CommandBuffer from the CommandQueue
 
-// New render command encoder
-- Get a MetalDrawable (a framebuffer) from the MetalLayer
+// Create a render command encoder with a render pass descriptor
+- Get a MetalDrawable (framebuffer) from the MetalLayer
 - Create a RenderPassDescriptor with MetalDrawable.texture (the framebuffer)
 - Using the CommandBuffer, create a RenderCommandEncoder with the RenderPassDescriptor
 
