@@ -1,3 +1,5 @@
+Note to people other than myself: I uploaded this code from an apple sample project so I could study it remotely
+
 Command Organization and Execution Model:
 https://developer.apple.com/library/ios/documentation/Miscellaneous/Conceptual/MetalProgrammingGuide/Cmd-Submiss/Cmd-Submiss.html#//apple_ref/doc/uid/TP40014221-CH3-SW1
 	
